@@ -6,4 +6,7 @@
 		select * from sys_user where account = #{account} and password = #{password}
 	</select>
 
+	<update id="update">
+		update sys_user set password = #{password} where account = #{account}
+	</update>
 </mapper>

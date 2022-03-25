@@ -16,4 +16,9 @@ public class SysManageController {
     public BaseUserInfo login(BaseUserInfo baseUserInfo) {
         return sysManageService.login(baseUserInfo);
     }
+
+    @RequestMapping("update")
+    public boolean update(BaseUserInfo baseUserInfo) {
+        return sysManageService.update(baseUserInfo);
+    }
 }

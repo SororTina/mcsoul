@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface SysManageMapper {
     BaseUserInfo login(BaseUserInfo baseUserInfo);
+    int update(BaseUserInfo baseUserInfo);
 }

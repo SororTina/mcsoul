@@ -1,13 +1,35 @@
 {
   "pages":[
+    "pages/home/home",
+    "pages/logs/logs",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/center/center"
+  
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "Mc-Soul",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#FFFFFF",
+    "backgroundColor": "#888888",
+    "list":[
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "static/icon/home_before.png",
+        "selectedIconPath": "static/icon/home_after.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "iconPath": "static/icon/center_before.png",
+        "selectedIconPath": "static/icon/center_after.png",
+        "text": "个人中心"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -12,3 +12,7 @@ mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
   mapper-locations: classpath:com/mc/mcsoul/dao/mapper/*Mapper.xml
   type-aliases-package: com.mc.mcsoul.entity
+wx:
+  appID: wx0cbbf0124ffe5df9
+  appSecret: cc5abf6f2780449e13abeb43f48fb379
+  grantType: authorization_code

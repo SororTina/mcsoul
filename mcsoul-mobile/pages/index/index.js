@@ -44,31 +44,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  begin() {
-    wx.startBeaconDiscovery({
-      uuids:['FDA50693-A4E2-4FB1-AFCF-C6EB07647825'],
-// 
-      success(res) { 
-        console.log("s1")
-        console.log(res)
-      },
-      fail(msg) {
-        console.log("f1")
-        console.log(msg)
-      }
-    })
-  },
-  get() {
-    wx.getBeacons({
-      success(res) {
-        console.log("s2")
-        console.log(res)
-      },
-      fail(msg) {
-        console.log("f2")
-        console.loh(msg)
-      }
-    });
   }
 })

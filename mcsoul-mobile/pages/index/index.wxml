@@ -20,10 +20,6 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-  <button bindtap="begin">
-  搜索
-  </button>
-  <button bindtap="get">
-  获取
-  </button>
+
+
 </view>

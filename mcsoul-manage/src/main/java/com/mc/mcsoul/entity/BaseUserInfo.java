@@ -8,4 +8,8 @@ public class BaseUserInfo {
     private String account;
     // 密码
     private String password;
+    // 登陆code
+    private String code;
+    // openID
+    private String openID;
 }

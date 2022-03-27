@@ -37,21 +37,21 @@
     <dependencies>
 
         <!-- springboot核心包 -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <!--springboot热部署组件-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <optional>true</optional> &lt;!&ndash; 这个需要为 true 热部署才有效 &ndash;&gt;-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional> <!-- 这个需要为 true 热部署才有效 -->
+        </dependency>
 
         <!-- mybatis依赖 -->
         <dependency>
@@ -92,10 +92,10 @@
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
                     <mainClass>com.mc.mcsoul.main.McsoulApplication</mainClass>
-<!--                    &lt;!&ndash;fork :  如果没有该项配置，这个devtools不会起作用，即应用不会restart &ndash;&gt;-->
-<!--                    <fork>true</fork>-->
-<!--                    &lt;!&ndash;支持静态文件热部署&ndash;&gt;-->
-<!--                    <addResources>true</addResources>-->
+                    <!--fork :  如果没有该项配置，这个devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork>
+                    <!--支持静态文件热部署-->
+                    <addResources>true</addResources>
                 </configuration>
             </plugin>
         </plugins>

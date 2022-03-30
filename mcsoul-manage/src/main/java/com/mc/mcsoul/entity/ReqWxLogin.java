@@ -15,9 +15,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReqWxLogin {
 	// 小程序 appId
-	private String appid = "wx0cbbf0124ffe5df9";
+	private String appid = "wxbd6c53423ff4397b";
 	// 小程序 appSecret
-	private String secret = "cc5abf6f2780449e13abeb43f48fb379";
+	private String secret = "610f8c4be7339a56363c4dae8d2cc9e7";
 	// 登录时获取的 code
 	private String js_code;
 	// 授权类型

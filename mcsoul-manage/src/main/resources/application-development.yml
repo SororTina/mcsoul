@@ -4,9 +4,21 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://121.4.69.199:3306/mc_soul?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://121.4.69.199:3306/mc_soul1?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 初始化、最小、最大连接数
+    initialSize: 5
+    minIdle: 5
+    max-active: 20
+    # 获取数据库连接等待的超时时间
+    maxWait: 60000
+    # 配置多久进行一次检测，检测需要关闭的空闲连接 单位毫秒
+    time-between-eviction-runs-millis: 60000
+    min-evictable-idle-time-millis: 300000
+    validation-query: SELECT 1 FROM DUAL
+    # 配置监控统计拦截的filters,去掉后，监控界面的sql无法统计
+    filters: stat
 #mybatis的配置
 mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml

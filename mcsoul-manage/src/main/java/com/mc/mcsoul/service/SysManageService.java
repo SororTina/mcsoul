@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class SysManageService {
     @Autowired
     private SysManageMapper sysManageMapper;
@@ -15,7 +16,6 @@ public class SysManageService {
         return sysManageMapper.login(baseUserInfo);
     }
 
-    @Transactional(readOnly = false)
     public boolean update(BaseUserInfo baseUserInfo) {
         if(sysManageMapper.update(baseUserInfo) > 0) {
             BaseUserInfo user = null;

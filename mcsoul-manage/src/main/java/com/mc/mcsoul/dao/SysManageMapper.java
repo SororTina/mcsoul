@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SysManageMapper {
     BaseUserInfo login(BaseUserInfo baseUserInfo);
+    BaseUserInfo getUser(BaseUserInfo baseUserInfo);
     int update(BaseUserInfo baseUserInfo);
 }

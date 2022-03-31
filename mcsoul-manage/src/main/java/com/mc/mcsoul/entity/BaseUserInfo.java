@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class BaseUserInfo {
+    private Integer id;
     // 账号
     private String account;
     // 密码
@@ -12,4 +13,9 @@ public class BaseUserInfo {
     private String code;
     // openID
     private String openID;
+
+    public BaseUserInfo(String openID) {
+        this.openID = openID;
+    }
+    public BaseUserInfo() { }
 }

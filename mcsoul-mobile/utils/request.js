@@ -21,10 +21,10 @@ function request(params, method) {
         'content-type': 'application/x-www-form-urlencoded',
       },
       success: (res) => {
-        resolve(res);
+        resolve(res.data);
       },
       fail: (err) => {
-        reject(err);
+        reject(err.errMsg);
       }
     });
   })

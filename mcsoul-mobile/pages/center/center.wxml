@@ -1,5 +1,5 @@
 <!--pages/center/center.wxml-->
 <view>
-  <button bindtap="login">登陆</button>
+  <button bindtap="login">点击登陆</button>
   
 </view>

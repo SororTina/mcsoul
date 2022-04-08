@@ -1,7 +1,9 @@
 package com.mc.mcsoul.entity;
 
 import lombok.Data;
-import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 
 /**
  * @version 1.0
@@ -10,18 +12,22 @@ import lombok.NonNull;
  * @desc:
  */
 @Data
+@Component
 public class ReqWxLogin {
 
 	// 小程序 appId
-	private String appid = "wxbd6c53423ff4397b";
+	@Value("${wx.appID}")
+	private String appid;
 
 	// 小程序 appSecret
-	private String secret = "610f8c4be7339a56363c4dae8d2cc9e7";
+	@Value("${wx.appSecret}")
+	private String secret;
 
 	// 登录时获取的 code
-	@NonNull
 	private String js_code;
 
 	// 授权类型
-	private String grant_type = "authorization_code";
+	@Value("${wx.grantType}")
+	private String grant_type;
+
 }

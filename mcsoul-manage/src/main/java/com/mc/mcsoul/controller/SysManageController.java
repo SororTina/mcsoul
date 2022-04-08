@@ -1,19 +1,14 @@
 package com.mc.mcsoul.controller;
 
-import com.mc.mcsoul.config.WxMappingJackson2HttpMessageConverter;
 import com.mc.mcsoul.entity.BaseUserInfo;
 import com.mc.mcsoul.entity.ReqWxLogin;
 import com.mc.mcsoul.entity.RespWxLogin;
 import com.mc.mcsoul.service.SysManageService;
 import com.mc.mcsoul.utils.AjaxJson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/sys/manage")
@@ -25,7 +20,7 @@ public class SysManageController {
     public AjaxJson login(ReqWxLogin reqWxLogin) {
         AjaxJson results = AjaxJson.success();
         RespWxLogin respWxLogin = sysManageService.getOpenID(reqWxLogin);
-//        BaseUserInfo userInfo = sysManageService.getUserByOpenID(new BaseUserInfo(respWxLogin.getOpenid()));
+        BaseUserInfo userInfo = sysManageService.getUserByOpenID(new BaseUserInfo(respWxLogin.getOpenid()));
         results.put("userInfo", new BaseUserInfo());
         return results;
     }

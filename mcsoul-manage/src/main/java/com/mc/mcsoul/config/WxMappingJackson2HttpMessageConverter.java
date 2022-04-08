@@ -1,8 +1,6 @@
 package com.mc.mcsoul.config;
 
-import com.alibaba.druid.support.http.StatViewServlet;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;

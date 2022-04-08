@@ -1,7 +1,6 @@
 package com.mc.mcsoul.utils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.springframework.http.HttpStatus;
 
 import java.util.HashMap;
@@ -9,16 +8,16 @@ import java.util.Map;
 
 public class AjaxJson extends HashMap<String, Object> {
     public AjaxJson() {
-        this.put((String)"success", true);
-        this.put((String)"code", HttpStatus.OK.value());
-        this.put((String)"msg", "操作成功");
+        this.put("success", true);
+        this.put("code", HttpStatus.OK.value());
+        this.put("msg", "操作成功");
     }
     public String getMsg() {
         return (String)this.get("msg");
     }
 
     public void setMsg(String msg) {
-        this.put((String)"msg", msg);
+        this.put("msg", msg);
     }
 
     public boolean isSuccess() {
@@ -26,29 +25,29 @@ public class AjaxJson extends HashMap<String, Object> {
     }
 
     public void setSuccess(boolean success) {
-        this.put((String)"success", success);
+        this.put("success", success);
     }
 
 
     @JsonIgnore
     public static AjaxJson success(String msg) {
-        AjaxJson j = new AjaxJson();
-        j.setMsg(msg);
-        return j;
+        AjaxJson ajaxJson = new AjaxJson();
+        ajaxJson.setMsg(msg);
+        return ajaxJson;
     }
 
     @JsonIgnore
     public static AjaxJson error(String msg) {
-        AjaxJson j = new AjaxJson();
-        j.setSuccess(false);
-        j.setMsg(msg);
-        return j;
+        AjaxJson ajaxJson = new AjaxJson();
+        ajaxJson.setSuccess(false);
+        ajaxJson.setMsg(msg);
+        return ajaxJson;
     }
 
     public static AjaxJson success(Map<String, Object> map) {
-        AjaxJson restResponse = new AjaxJson();
-        restResponse.putAll(map);
-        return restResponse;
+        AjaxJson ajaxJson = new AjaxJson();
+        ajaxJson.putAll(map);
+        return ajaxJson;
     }
 
     public static AjaxJson success() {
@@ -70,6 +69,6 @@ public class AjaxJson extends HashMap<String, Object> {
     }
 
     public void setCode(int code) {
-        this.put((String)"code", code);
+        this.put("code", code);
     }
 }

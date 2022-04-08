@@ -19,18 +19,23 @@ public class SysManageService {
     private SysManageMapper sysManageMapper;
     @Autowired
     private RestTemplate restTemplate;
+    @Autowired
+    private ReqWxLogin wxLogin;
+
+
     public BaseUserInfo login(ReqWxLogin reqWxLogin) {
 
         return sysManageMapper.login(new BaseUserInfo());
     }
 
     public RespWxLogin getOpenID(ReqWxLogin reqWxLogin) {
+        wxLogin.setJs_code(reqWxLogin.getJs_code());
         String url = "https://api.weixin.qq.com/sns/jscode2session?appid={appID}&secret={secret}&js_code={jsCode}&grant_type={grantType}";
         Map<String, Object> params = new HashMap<>();
-        params.put("appID", reqWxLogin.getAppid());
-        params.put("secret", reqWxLogin.getSecret());
-        params.put("jsCode", reqWxLogin.getJs_code());
-        params.put("grantType", reqWxLogin.getGrant_type());
+        params.put("appID", wxLogin.getAppid());
+        params.put("secret", wxLogin.getSecret());
+        params.put("jsCode", wxLogin.getJs_code());
+        params.put("grantType", wxLogin.getGrant_type());
         RespWxLogin respWxLogin = restTemplate.getForObject(url, RespWxLogin.class, params);
         System.out.println(respWxLogin);
         return respWxLogin;

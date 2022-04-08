@@ -2,9 +2,9 @@ server:
   port: 4396
 spring:
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://172.16.180.231:3306/mc_soul1?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
+    username: yitong
+    password: whr19980705
+    url: jdbc:mysql://121.4.69.199:3306/development_mcsoul?useUnicode=true&characterEncoding=utf-8&useSSL=false&nullCatalogMeansCurrent=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # 初始化、最小、最大连接数
@@ -25,6 +25,6 @@ mybatis:
   mapper-locations: classpath:com/mc/mcsoul/dao/mapper/*Mapper.xml
   type-aliases-package: com.mc.mcsoul.entity
 wx:
-  appID: wx0cbbf0124ffe5df9
-  appSecret: cc5abf6f2780449e13abeb43f48fb379
+  appID: wxbd6c53423ff4397b
+  appSecret: 610f8c4be7339a56363c4dae8d2cc9e7
   grantType: authorization_code

@@ -1,2 +1,5 @@
 <!--pages/home/home.wxml-->
-
+<view style="border: 1px solid black;">
+    <image src="{{userInfo.avatarUrl}}" alt=""/>
+    <text> {{userInfo.nickName}} </text>
+</view>

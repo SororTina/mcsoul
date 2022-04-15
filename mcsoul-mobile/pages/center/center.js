@@ -27,8 +27,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onLoad() {
-      this.login();
+    onShow() {
+      this.setData({
+        hasUserInfo: wx.getStorageSync('hasUserInfo'),
+        userInfo: wx.getStorageSync('userInfo')
+      })
     },
     login() {
       let that = this;
@@ -42,12 +45,12 @@ Component({
                 js_code: res.code,
               }
             }).then(res => {
-              console.log(res)
               if (res.userInfo != undefined && res.userInfo.id !== undefined) {
                 that.setData({
-                  userInfo: res.userInfo,
+                  userInfo : res.userInfo,
                   hasUserInfo: true
                 })
+                wx.setStorageSync('userInfo', res.userInfo);
               }
             })
           } else {
@@ -74,9 +77,11 @@ Component({
                   }
                 }).then(res => {
                   that.setData({
-                    userInfo: res.userInfo,
+                    userInfo : res.userInfo,
                     hasUserInfo: true
-                  })
+                  });
+                  wx.setStorageSync('userInfo', res.userInfo);
+                  wx.setStorageSync('hasUserInfo', true);
                 })
               }
             }

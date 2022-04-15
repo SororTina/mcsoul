@@ -13,6 +13,10 @@ public class BaseUserInfo {
     private String code;
     // openID
     private String openID;
+    // 用户昵称
+    private String nickName;
+    // 用户头像
+    private String avatarUrl;
 
     public BaseUserInfo(String openID) {
         this.openID = openID;

@@ -14,13 +14,24 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    hasUserInfo: false,
+    userInfo: {
+      id:"",
+      avatarUrl: "",
+      nickName: ""
+    }
+  },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    onLoad() {
+      this.login();
+    },
     login() {
+      let that = this;
       wx.login({
         success(res) {
           if (res.code) {
@@ -31,23 +42,45 @@ Component({
                 js_code: res.code,
               }
             }).then(res => {
-              if (res.userInfo.id == undefined) {
-                console.log("unlogin")
-                wx.getUserProfile({
-                  desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-                  success: (res) => {
-                    console.log(res)
-                    this.setData({
-                      userInfo: res.userInfo,
-                      hasUserInfo: true
-                    })
-                  }
+              console.log(res)
+              if (res.userInfo != undefined && res.userInfo.id !== undefined) {
+                that.setData({
+                  userInfo: res.userInfo,
+                  hasUserInfo: true
                 })
               }
             })
           } else {
             console.log('登录失败！' + res.errMsg)
           }
+        }
+      })
+    },
+    getUserInfo() {
+      let that = this;
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          that.userInfo = res.userInfo;
+          console.log(res)
+          wx.login({
+            success(res) {
+              if (res.code) {
+                $post({
+                  url: '/sys/manage/register',
+                  data: {
+                    js_code: res.code,
+                    ...that.userInfo
+                  }
+                }).then(res => {
+                  that.setData({
+                    userInfo: res.userInfo,
+                    hasUserInfo: true
+                  })
+                })
+              }
+            }
+          })
         }
       })
     }

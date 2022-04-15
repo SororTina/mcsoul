@@ -1,5 +1,11 @@
 <!--pages/center/center.wxml-->
 <view>
-  <button bindtap="login">点击登陆</button>
+  <view wx:if="{{!hasUserInfo}}">
+    <button bindtap="getUserInfo" >点击登陆</button>
+  </view>
+  <view wx:else>
+    <image src="{{userInfo.avatarUrl}}" alt=""/>
+    <text> {{userInfo.nickName}} </text>
+  </view>
   
 </view>

@@ -4,7 +4,8 @@
 
 	<sql id="baseUserInfoColumns">
 		t.id AS "id",
-		t.open_id AS "openID"
+		t.nick_name AS "nickName",
+		t.avatar_url AS "avatarUrl"
 	</sql>
 
 	<select id="getUser" resultType="baseUserInfo">
@@ -13,10 +14,10 @@
 		FROM base_user_info t
 		<where>
 			<if test="id != null and id != ''">
-				AND a.id = #{id}
+				AND t.id = #{id}
 			</if>
 			<if test="openID != null and openID != ''">
-				AND a.open_id = #{openID}
+				AND t.open_id = #{openID}
 			</if>
 		</where>
 	</select>
@@ -24,6 +25,19 @@
 	<select id="login" resultType="baseUserInfo">
 		select * from sys_user where account = #{account} and password = #{password}
 	</select>
+	<insert id="register" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO
+		base_user_info (
+		    open_id,
+		    nick_name,
+		    avatar_url
+		)
+		VALUES (
+			#{openID},
+		    #{nickName},
+		    #{avatarUrl}
+		);
+	</insert>
 
 	<update id="update">
 		update sys_user set password = #{password} where account = #{account}

@@ -20,8 +20,16 @@ public class SysManageController {
     public AjaxJson login(ReqWxLogin reqWxLogin) {
         AjaxJson results = AjaxJson.success();
         RespWxLogin respWxLogin = sysManageService.getOpenID(reqWxLogin);
-        BaseUserInfo userInfo = sysManageService.getUserByOpenID(new BaseUserInfo(respWxLogin.getOpenid()));
-        results.put("userInfo", new BaseUserInfo());
+        results.put("userInfo", sysManageService.getUserByOpenID(new BaseUserInfo(respWxLogin.getOpenid())));
+        return results;
+    }
+
+    @RequestMapping("register")
+    public AjaxJson register(ReqWxLogin reqWxLogin, BaseUserInfo baseUserInfo) {
+        AjaxJson results = AjaxJson.success();
+        RespWxLogin respWxLogin = sysManageService.getOpenID(reqWxLogin);
+        baseUserInfo.setOpenID(respWxLogin.getOpenid());
+        results.put("userInfo", sysManageService.register(baseUserInfo));
         return results;
     }
 

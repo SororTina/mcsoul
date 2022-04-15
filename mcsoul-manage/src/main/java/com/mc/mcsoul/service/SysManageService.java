@@ -43,6 +43,14 @@ public class SysManageService {
     public BaseUserInfo getUserByOpenID(BaseUserInfo baseUserInfo) {
         return sysManageMapper.getUser(baseUserInfo);
     }
+    public BaseUserInfo register(BaseUserInfo baseUserInfo) {
+        if(sysManageMapper.register(baseUserInfo) > 0) {
+            baseUserInfo.setOpenID(null);
+            return baseUserInfo;
+        } else {
+            return null;
+        }
+    }
     public boolean update(BaseUserInfo baseUserInfo) {
         if(sysManageMapper.update(baseUserInfo) > 0) {
             BaseUserInfo user = null;

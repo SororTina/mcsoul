@@ -4,3 +4,6 @@
 .idea
 
 *.iml
+
+/mcsoul-mobile/node_modules
+/mcsoul-mobile/miniprogram_npm
